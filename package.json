@@ -1,0 +1,14 @@
+{
+  "name": "azure-twitter-destroyer",
+  "version": "1.0.0",
+  "author": {
+    "name": "Sawyer Hollenshead",
+    "url": "http://sawyerh.com"
+  },
+  "license": "MIT",
+  "repository": "github:sawyerh/azure-twitter-destroyer",
+  "dependencies": {
+    "moment": "^2.23.0",
+    "twitter": "^1.7.1"
+  }
+}
