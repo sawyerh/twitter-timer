@@ -1,6 +1,6 @@
 ## Overview
 
-An [Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview) that fires daily and deletes your Tweets and Twitter likes that older than 14 days.
+An [Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview) that fires daily and deletes your Tweets and Twitter likes that are older than 14 days.
 
 This can be adapted to work as an AWS Lambda or Cloud Function if you're more familiar with those platforms.
 
