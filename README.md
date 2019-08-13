@@ -45,3 +45,4 @@ In Visual Studio Code, via the Azure Functions extension:
 ## Additional info
 
 - [Create a function in Azure that is triggered by a timer](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-scheduled-function)
+- [Disabling retweets inspired by @keithk](https://medium.com/@keithkurson/taking-control-of-incoming-media-7cfbe64bd429)
