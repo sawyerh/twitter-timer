@@ -1,6 +1,6 @@
 ## Overview
 
-An [Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview) that fires daily and deletes your Tweets and Twitter likes that are older than 14 days.
+An [Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview) that fires daily and deletes your Tweets and Twitter likes that are older than 14 days, and disables retweets from everyone you follow.
 
 This can be adapted to work as an AWS Lambda or Cloud Function if you're more familiar with those platforms.
 
@@ -22,16 +22,16 @@ This can be adapted to work as an AWS Lambda or Cloud Function if you're more fa
 
 ### Change the date threshold
 
-By default, tweets and likes older than **14** days are deleted. To change this number, update the `oldestAllowedDate` variable in [`DeleteTweets/index.js`](DeleteTweets/index.js)
+By default, tweets and likes older than **14** days are deleted. To change this number, update the `oldestAllowedDate` variable in [`TwitterTimer/index.js`](TwitterTimer/index.js)
 
 ### Safelist Tweets
 
-If there are tweets you want to keep forever, add their IDs to [`DeleteTweets/tweetsToSaveForever.js`](DeleteTweets/tweetsToSaveForever.js). These tweets won't be deleted even if their older than the defined threshold.
+If there are tweets you want to keep forever, add their IDs to [`TwitterTimer/tweetsToSaveForever.js`](TwitterTimer/tweetsToSaveForever.js). These tweets won't be deleted even if their older than the defined threshold.
 
 ## Local testing
 
-1. `func host start`
-1. Then make a `POST` request to `http://localhost:7071/admin/functions/DeleteTweets` with a JSON body of `{}`
+1. `npm start`
+1. Then make a `POST` request to `http://localhost:7071/admin/functions/TwitterTimer` with a JSON body of `{}`
 
 ## Deploying
 

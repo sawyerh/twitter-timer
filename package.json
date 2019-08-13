@@ -1,14 +1,17 @@
 {
-  "name": "azure-twitter-destroyer",
-  "version": "1.0.0",
+  "name": "azure-twitter-timer",
+  "version": "2.0.0",
   "author": {
     "name": "Sawyer Hollenshead",
     "url": "http://sawyerh.com"
   },
   "license": "MIT",
-  "repository": "github:sawyerh/azure-twitter-destroyer",
+  "repository": "github:sawyerh/azure-twitter-timer",
+  "scripts": {
+    "start": "func host start"
+  },
   "dependencies": {
-    "moment": "^2.23.0",
+    "moment": "^2.24.0",
     "twitter": "^1.7.1"
   }
 }

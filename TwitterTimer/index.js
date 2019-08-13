@@ -24,13 +24,13 @@ const tweetMomentDateFormat = "ddd MMM DD kk:mm:ss Z YYYY";
 module.exports = async function(context) {
   log = context.log;
   log(
-    "Deleting tweets and likes that occurred before",
-    oldestAllowedDate.format()
+    `Deleting tweets and likes that occurred before ${oldestAllowedDate.format()}, and disabling all tweets.`
   );
 
   try {
     await deleteTweets();
     await deleteLikes();
+    await disableRetweets();
   } catch (error) {
     log.error(error);
   }
@@ -143,5 +143,32 @@ async function deleteLike(tweet) {
     return id;
   } catch (error) {
     log.error(error, id);
+  }
+}
+
+/**
+ * Disable retweets for everyone I follow
+ */
+async function disableRetweets() {
+  const { ids } = await client.get("friends/ids", {
+    stringify_ids: true,
+    screen_name: username
+  });
+
+  let count = 0;
+
+  try {
+    await Promise.all(
+      ids.map(async user_id => {
+        log.info("Disabling retweets for", user_id);
+        await client.post("friendships/update", { user_id, retweets: false });
+        count++;
+      })
+    );
+
+    log("Disabled retweets", { totalDisabled: count });
+  } catch (error) {
+    log.error("Error disabling retweets", { totalDisabled: count });
+    throw error;
   }
 }
