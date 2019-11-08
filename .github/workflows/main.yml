@@ -1,0 +1,24 @@
+name: Deploy Azure Function
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@v1.1.0
+      with:
+        node-version: '10.x'
+    - name: 'run npm'
+      run: |
+        npm install
+    - name: Azure Functions Action
+      uses: Azure/functions-action@v1.0.0
+      id: fa
+      with:
+        app-name: TwitterDestroyer
+        publish-profile: ${{ secrets.SCM_CREDENTIALS }}
