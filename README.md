@@ -1,3 +1,5 @@
+⚠️ This code has been migrated to https://github.com/sawyerh/twitter-hacks
+
 ## Overview
 
 An [Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview) that fires daily and deletes your Tweets and Twitter likes that are older than 14 days, and disables retweets from everyone you follow.
